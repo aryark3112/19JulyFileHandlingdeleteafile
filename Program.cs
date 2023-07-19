@@ -25,23 +25,42 @@ namespace _19July
             //Console.ReadKey();
 
             //Example 2 
-            Console.WriteLine("Enter FILE path"); //To find a file that exists 
-            string fPath = Console.ReadLine();
-            if(!File.Exists(fPath))
-            { 
-                Console.WriteLine("File Already exists!!");
-                
-            }
-            else
+            //Console.WriteLine("Enter FILE path"); //To find a file that exists 
+            //string fPath = Console.ReadLine();
+            //if(File.Exists(fPath))
+            //{ 
+            //    Console.WriteLine("File Already exists!!");  //In output Screen type C://second.txt
+
+            //}
+            //else
+            //{
+            //    StreamWriter sw = File.AppendText(fPath);
+            //    sw.WriteLine("Welcome to Stream Writing Example");
+            //    sw.Dispose();
+            //    sw.Close();
+            //    Console.WriteLine("Created and text is Written");
+            //}
+            //Console.ReadKey();
+
+            //Example 3
+            StreamReader sr;
+            try
             {
-                StreamWriter sw = File.AppendText(fPath);
-                sw.WriteLine("Welcome to Stream Writing Example");
-                sw.Dispose();
-                sw.Close();
-                Console.WriteLine("Created and text is Written");
+                string fpath = "C:\\Users\\aryar\\OneDrive\\Documents\\Sample Example";
+                sr = new StreamReader(fpath);
+                string text = "";
+                while ((text = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(text); ;
+                }
+                sr.Close();
             }
-            Console.ReadKey();
-            
+            catch(Exception ex)
+            { Console.WriteLine("Error!!!"+ex.Message); }
+            finally
+            {
+                Console.ReadKey();
+            }
 
         }
     }
