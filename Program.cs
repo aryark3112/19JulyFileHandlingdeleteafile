@@ -64,22 +64,43 @@ namespace _19July
             //}
 
             //Example 4
+            //try
+            //{
+            //    string path ="D:\\";
+            //    Console.WriteLine("Enter File Name to read out from"); //In output screen type FileOne.txt
+            //    string fName = Console.ReadLine();
+            //    string fpath = path + fName;
+            //    if (File.Exists(fpath))
+            //    {
+            //        string[] lines = File.ReadAllLines(fpath);
+            //        foreach (string line in lines)
+            //        {
+            //            Console.WriteLine(line);
+            //        }
+            //    }
+            //    else { Console.WriteLine("File does not exist"); }
+            //    }
+            //catch (Exception ex)
+            //{ Console.WriteLine("Error!!!" + ex.Message); }
+            //finally
+            //{
+            //    Console.ReadKey();
+            //}
+
+            //To delete the file
             try
             {
-                string path ="D:\\";
-                Console.WriteLine("Enter File Name to read out from"); //In output screen type FileOne.txt
+                string path = "D:\\";
+                Console.WriteLine("Enter File Name to Delete"); //create a file in d drive and in output screen enter the exact name
                 string fName = Console.ReadLine();
                 string fpath = path + fName;
                 if (File.Exists(fpath))
                 {
-                    string[] lines = File.ReadAllLines(fpath);
-                    foreach (string line in lines)
-                    {
-                        Console.WriteLine(line);
-                    }
+                    File.Delete(fName);
+                    Console.WriteLine("File Deleted permanently!!");
                 }
                 else { Console.WriteLine("File does not exist"); }
-                }
+            }
             catch (Exception ex)
             { Console.WriteLine("Error!!!" + ex.Message); }
             finally
