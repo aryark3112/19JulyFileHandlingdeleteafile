@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 
 namespace _19July
@@ -43,25 +44,48 @@ namespace _19July
             //Console.ReadKey();
 
             //Example 3
-            StreamReader sr;
+            //StreamReader sr;
+            //try
+            //{
+            //    string fpath = "C:\\Users\\aryar\\OneDrive\\Documents\\Sample Example";
+            //    sr = new StreamReader(fpath);
+            //    string text = "";
+            //    while ((text = sr.ReadLine()) != null)
+            //    {
+            //        Console.WriteLine(text); ;
+            //    }
+            //    sr.Close();
+            //}
+            //catch(Exception ex)
+            //{ Console.WriteLine("Error!!!"+ex.Message); }
+            //finally
+            //{
+            //    Console.ReadKey();
+            //}
+
+            //Example 4
             try
             {
-                string fpath = "C:\\Users\\aryar\\OneDrive\\Documents\\Sample Example";
-                sr = new StreamReader(fpath);
-                string text = "";
-                while ((text = sr.ReadLine()) != null)
+                string path ="D:\\";
+                Console.WriteLine("Enter File Name to read out from"); //In output screen type FileOne.txt
+                string fName = Console.ReadLine();
+                string fpath = path + fName;
+                if (File.Exists(fpath))
                 {
-                    Console.WriteLine(text); ;
+                    string[] lines = File.ReadAllLines(fpath);
+                    foreach (string line in lines)
+                    {
+                        Console.WriteLine(line);
+                    }
                 }
-                sr.Close();
-            }
-            catch(Exception ex)
-            { Console.WriteLine("Error!!!"+ex.Message); }
+                else { Console.WriteLine("File does not exist"); }
+                }
+            catch (Exception ex)
+            { Console.WriteLine("Error!!!" + ex.Message); }
             finally
             {
                 Console.ReadKey();
             }
-
         }
     }
 }
